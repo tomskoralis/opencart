@@ -333,6 +333,17 @@ class ControllerProductProduct extends Controller {
 				);
 			}
 
+            if (!empty($discounts)) {
+                $data['discount_percentage'] = $this->language->get('text_discount_percentage') . ' ' . $discounts[0]['quantity'] . '%';
+            } elseif ($data['special']) {
+                $price = floatval(substr($data['price'], 1));
+                $special = floatval(substr($data['special'], 1));
+                $percentage = round(($price - $special) / $price * 100);
+                $data['discount_percentage'] = $this->language->get('text_discount_percentage') . ' ' . $percentage . '%';
+            } else {
+                $data['discount_percentage'] = false;
+            }
+
 			$data['options'] = array();
 
 			foreach ($this->model_catalog_product->getProductOptions($this->request->get['product_id']) as $option) {

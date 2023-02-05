@@ -367,10 +367,12 @@ class ControllerCatalogProduct extends Controller {
 
         if (isset($this->request->get['filter_category'])) {
             $this->load->model('catalog/category');
+
             $category_data = ['filter_name' => $this->request->get['filter_category']];
             $categories = $this->model_catalog_category->getCategories($category_data);
             $category_ids = array_column($categories, 'category_id');
-            $products_with_category = [];
+
+            $products_with_category = array();
             foreach ($category_ids as $category_id) {
                 $products_with_category []= $this->model_catalog_product->getProductsByCategoryId($category_id);
             }

@@ -22,6 +22,9 @@
         <?php } ?>
         <div class="<?php echo $class; ?>">
           <?php if ($thumb || $images) { ?>
+          <?php if ($discount_percentage) { ?>
+          <div class="discount"><?php echo $discount_percentage ?></div>
+          <?php } ?>
           <ul class="thumbnails">
             <?php if ($thumb) { ?>
             <li><a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>

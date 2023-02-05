@@ -747,3 +747,12 @@ h2.price {
     background-image: none;
     background-color: #df5c39;
 }
+
+.discount {
+	position: absolute;
+	left: 30px;
+	top: 10px;
+    color: red;
+    font-size: min(8vw, 2rem);
+	white-space: nowrap;
+}
